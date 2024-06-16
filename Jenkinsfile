@@ -1,7 +1,7 @@
 node{
     
     stage('Clone repo'){
-        git credentialsId: 'GIT-Credentials', url: 'https://github.com/javabyraghu/maven-web-app.git'
+        git credentialsId: 'GIT-Credentials', url: 'https://github.com/yuvamgit/maven-web-app.git'
     }
     
     stage('Maven Build'){
@@ -26,23 +26,23 @@ node{
 			]	
 		],
 		credentialsId: 'nexus3',
-		groupId: 'in.javabyraghu',
+		groupId: 'in.yuvam',
 		nexusUrl: '',
 		protocol: 'http',
-		repository: 'javabyraghu-release'
+		repository: 'yuvam-release'
 		version: '1.0.0'
 	}
 }
     
     stage('Build Image'){
-        sh 'docker build -t javabyraghu/mavenwebapp .'
+        sh 'docker build -t yuvam/mavenwebapp .'
     }
     
     stage('Push Image'){
         withCredentials([string(credentialsId: 'DOCKER-CREDENTIALS', variable: 'DOCKER_CREDENTIALS')]) {
-            sh 'docker login -u javabyraghu -p ${DOCKER_CREDENTIALS}'
+            sh 'docker login -u yuvamgit -p ${DOCKER_CREDENTIALS}'
         }
-        sh 'docker push javabyraghu/mavenwebapp'
+        sh 'docker push yuvamgit/mavenwebapp'
     }
     
     stage('Deploy App'){
