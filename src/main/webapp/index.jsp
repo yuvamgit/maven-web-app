@@ -1,12 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
+<head>
+    <title>DevOps Test App</title>
+    <script>
+        // Function to display the response after 30 seconds
+        function showResponse() {
+            document.getElementById('response').innerText = "200 OK";
+        }
+
+        // Set the timeout for 30 seconds (30000 milliseconds)
+        setTimeout(showResponse, 30000);
+    </script>
+</head>
 <body>
-<h1><font color='green'>Welcome to DevOps (Test App)<font></h1>
-<h2>Learn In Easy Way </h2>
-
-<a href="https://facebook.com/groups/thejavatemple">Click Here To Website</a>
-<h1>Welcome to CI/CD Pipeline</h1>
-<h2>yuvam</h2>
-<br/>
-
+    <!-- Placeholder for the response message -->
+    <div id="response"></div>
 </body>
 </html>
